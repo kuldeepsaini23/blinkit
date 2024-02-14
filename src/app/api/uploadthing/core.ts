@@ -9,8 +9,6 @@ import { generateSlug } from "random-word-slugs";
 
 const f = createUploadthing();
 
-connect();
-
 const auth = async (req: NextRequest) => {
   const token = req.cookies.get("token")?.value || "";
   // console.log("TOKEN: ", token);
@@ -51,6 +49,8 @@ export const ourFileRouter = {
     })
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
+
+      connect();
       console.log("Upload complete for userId:", metadata.userId);
 
       console.log("file url: ", file);

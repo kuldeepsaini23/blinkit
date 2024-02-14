@@ -9,14 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CloudFogIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import useUserStore from "@/store/userStore";
 // import { UploadCloud } from "lucide-react";
 
 type Props = {};
 
 const UploadImage = (props: Props) => {
   let toastId: any;
+  const {reload,setReload} = useUserStore(state=>state);
   return (
     <div className="w-full py-3 sm:px-0 flex justify-center items-center">
       <Card className="sm:w-[350px]">
@@ -39,9 +39,10 @@ const UploadImage = (props: Props) => {
                   console.log("Files: ", res);
                   toast.success("Upload Completed");
                   toast.dismiss(toastId);
+                  setReload(!reload)
                 }}
                 onUploadError={(error: Error) => {
-                  // Do something with the error.
+                  // Do something with the error.  
                   toast.error(`ERROR! ${error.message}`);
                   toast.dismiss(toastId);
                 }}
