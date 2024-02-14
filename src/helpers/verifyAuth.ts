@@ -1,3 +1,4 @@
+import { logout } from "@/services/operations/authApi";
 import jwt from "jsonwebtoken";
 
 //auth
@@ -12,6 +13,7 @@ export async function verifyAuth(token: string) {
   } catch (err:any) {
     //verification - issue
     console.log("ERROR WHILE EXTRACTING TOKEN....", err.message);
+    logout();
     return {error:true, message:err.message};
   }
 }

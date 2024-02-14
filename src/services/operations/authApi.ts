@@ -66,7 +66,7 @@ export async function login(
       router.push("/signup");
       toast.success("Complete your profile");
     } else {
-      router.push(`/user/${response.data.user.username}`);
+      router.push(`/`);
       setUser(response.data.user);
       setIsUserLoggedIn(true);
       localStorage.setItem("user", JSON.stringify(response.data.user));
@@ -111,7 +111,6 @@ export async function singup(
       router.push(`${redirect}`);
       localStorage.removeItem("redirect");
     } else {
-      // router.push(`/user/${response.data.user.username}`);
       router.push(`/`);
     }
 
@@ -127,22 +126,20 @@ export async function singup(
 
 export async function logout() {
   try {
-    const response = await apiConnector("GET", LOGIN_API);
+    const response = await apiConnector("GET", LOGOUT_API);
 
-    // console.log("LOGIN API RESPONSE............", response);
-
+    console.log("LOGUT API RESPONSE............", response);
+    localStorage.removeItem("token");
     if (!response.data.success) {
       throw new Error(response.data.message);
     }
 
-    localStorage.removeItem("token");
-    // router.push(`/`);
-    // setUser();
-    // setIsUserLoggedIn(false);
     localStorage.removeItem("user");
     toast.success("Logout Successful");
+
+    toast.success("Logout Successful");
   } catch (error: any) {
-    // console.log("LOGIN API ERROR............", error);
+    console.log("LOGUT API ERROR............", error);
     toast.error(error?.response?.data?.message || "Something went wrong");
   }
 }

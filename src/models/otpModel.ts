@@ -31,9 +31,9 @@ async function sendVerificationEmail(email:string, otp:string) {
   try {
     const mailResponse = await mailSender(
       email,
-      'OTP for Ducs Connect',
+      'OTP for Blinkit',
       // otpTemplate(otp),
-      `Your OTP for Ducs Connect is ${otp}`
+      `Your OTP for Blinkit is ${otp}`
     ) // mail
     console.log('Email sent successfully: ', mailResponse)
   } catch (error) {

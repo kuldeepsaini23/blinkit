@@ -7,15 +7,11 @@ export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublicPath = path === '/login' || path === '/verify-email';
   const signupPath = path === '/signup';
-  
+
 
   const token = request.cookies.get("token")?.value || "";
   const verified = request.cookies.get("verified")?.value === "true" ? true : false;
   // console.log(signupPath, token, verified);
-
-  if(!token){
-    logout()
-  }
 
   if(isPublicPath && token) {
     return NextResponse.redirect(new URL("/",request.nextUrl));

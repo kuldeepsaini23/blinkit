@@ -26,7 +26,7 @@ const s3 = new AWS.S3({
 })
 
 // Use async/await for better readability
-export default async function uploadImage(file:any) {
+export default async function uploadImage(file) {
   try {
 
 
@@ -49,7 +49,7 @@ export default async function uploadImage(file:any) {
     console.log('File uploaded successfully:', data.Location)
 
     return data
-  } catch (error:any) {
+  } catch (error) {
     // Log error for better debugging
     console.error('Error uploading file:', error.message)
 
