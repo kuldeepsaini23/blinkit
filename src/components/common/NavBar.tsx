@@ -6,7 +6,6 @@ import Link from "next/link";
 type Props = {};
 
 import { cookies } from 'next/headers'
-import Logout from "./Logout";
  
 async function getCookieData() {
   const cookieData = cookies().getAll()
@@ -31,7 +30,7 @@ const NavBar = async(props: Props) => {
 
       <ModeToggle />
 
-    <Logout/>
+    {/* <Logout/> */}
     </div>
   );
 };
