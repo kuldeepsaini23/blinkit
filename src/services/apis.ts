@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_DOMAIN
+const BASE_URL = ""
 
 // AUTH ENDPOINTS
 export const authEndpoints = {
