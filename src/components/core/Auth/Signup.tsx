@@ -13,15 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import CountryCode from "@/lib/countrycode.json";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { singup } from "@/services/operations/authApi";
 import useUserStore from "@/store/userStore";
